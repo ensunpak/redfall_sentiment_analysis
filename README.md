@@ -25,4 +25,7 @@ We will need data for the project, as such tweets with the hashtag _#redfall_ or
 #### <p>Initial EDA</p>
 Examining the distribution of tweets by language, the following plot is produced.<br>
 <p></p>
-<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/tweet_polarity_histogram.png" width="550">
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/tweets_distribution_language.png" width="800">
+<p></p>
+The top five languages of tweets were English, Spanish, Portuguese, French, and Japanese.
+
