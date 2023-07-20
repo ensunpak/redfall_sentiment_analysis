@@ -19,4 +19,4 @@ Among all the algorithms implemented for this classification task, the models we
 
 ### <p>Experiment</p>
 #### <p>Tweet scraping</p>
-We will need data for the project, as such tweets with the hashtag #redfall or found through string search “redfall” in Twitter will be scraped using the snscrape Python package. 100 tweets daily were scrapped between Feb 2, 2023, and June 1, 2023, to observe the tweet sentiments about the game before and a month after the game was released on May 2, 2023. From this, 19,663 raw tweets were scraped. 
+We will need data for the project, as such tweets with the hashtag _#redfall_ or found through string search “_redfall_” in Twitter will be scraped using the **[snscrape](https://github.com/JustAnotherArchivist/snscrape)** Python package. 100 tweets daily were scrapped between Feb 2, 2023, and June 1, 2023, to observe the tweet sentiments about the game before and a month after the game was released on May 2, 2023. From this, 19,663 raw tweets were scraped. This was carried out in the "tweet_scraping.ipynb" notebook.
