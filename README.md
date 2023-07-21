@@ -18,7 +18,7 @@ From the tweets analyzed, there is no change in the level of sentiment about the
 
 Among all the algorithms implemented for this classification task, the models were evaluated based on classification accuracy. The word embedding method was also important in the performance of the models. In most cases, it was found that the count vectorization word embedding method gave better results compared to the term frequency-inverse document frequency (TFIDF) method. It was observed that the tree-based classifiers performed the best using count vectorizer word embedding. Using the count vectorizer word embedding method, the decision tree classifier was the best-performing model while the K-Nearest Neighbors (KNN) model was the worst performer.
 
-### Experiment
+### Sentiment Analysis
 
 #### Tweet scraping
 We will need data for the project, as such tweets with the hashtag _#redfall_ or found through string search “_redfall_” in Twitter will be scraped using the **[snscrape](https://github.com/JustAnotherArchivist/snscrape)** Python package. 100 tweets daily were scrapped between Feb 2, 2023, and June 1, 2023, to observe the tweet sentiments about the game before and a month after the game was released on May 2, 2023. From this, 19,663 raw tweets were scraped. This was carried out in the "[tweet_scraping.ipynb](https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/tweets_scraping.ipynb)" notebook.
@@ -64,5 +64,36 @@ The ten most used words in tweets that are both positive and negative can be see
 
 <img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/top_10_occuring_words.png" width=450>
 
-The trend of the relative composition of the daily tweets was examined. This would be an appropriate approach to determine the sentiment trend of the tweets over the observation window.
+The trend of the relative composition of the daily tweets was examined. This would be an appropriate approach to determine the sentiment trend of the tweets over the observation window, given that the daily samples size of tweets is not consistent.
 
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/sentiment_dist_ts.png" width=900>
+
+Taking a different view of the sentiment trends by plotting each sentiment trend separately, we have the following plot.
+
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/sentiment_breakdown.png" width=960>
+
+It is quite hard to tell the direction of the sentiments around the launch date. To make it clearer, linear models were fitted on one month of data before and after the launch date for both positive and negative sentiment plots. The following plot is produced.
+
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/sentiment_breakdown_trendline.png" width=960>
+
+Now it can be seen clearly that the negative sentiment decreased towards the release date but increased again after. This confirms our expectation of the public sentiment of the game after its launch, however it is interesting to note that negative sentiment actually decreased closer to when the game was about to be released.
+
+### Clustering Model Experiment
+
+#### Word embedding (Feature extraction)
+Two approaches to embedding the word tokens in each tweet were implemented: **Count vectorizer** and **Term Frequency Inverted Document Frequency (TFIDF)**.
+
+The count vectorizer method collects the unique tokens found in the corpus of tweets and creates an index for each token and assigns a numerical value to it. Next, a count of the occurrences of each token in each tweet is performed and a matrix called document-term matrix (DTM) is formed. Each tweet is represented as a high-dimensional vector, each element in the vector corresponds to the count of a specific token in that tweet.
+
+The TFIDF method measures how frequently a word token appears in a document. First, the term frequency in a tweet is obtained and then it is divided against the total number of terms in the entire tweet. The higher this value, the more important the term is in the context of the tweet. The inverse document term component takes the log of the ratio between the number of documents and the number of documents that contain the term. The TFIDF score is then calculated by multiplying the term frequency with the inverse document frequency. A low score suggests that the term is infrequent in the corpus and is less impactful, while a high score suggests that the term is frequent and more valuable.
+
+#### Classification models
+To classify new unseen tweets about Redfall, a classification model will be developed to do that. The model will be trained on the word-embedded corpus, and the following five algorithms were selected to classify a sentiment for a given tweet in this project.
+
+1.	K-Nearest Neighbors (KNN)
+2.	Decision tree classifier
+3.	Random forest classifier
+4.	Linear SVC (SVM)
+5.	Naïve-Bayes
+
+The model will be trained on both the word embedding performed by count vectorizer and TFIDF methods respectively. The contribution to performance from the size of the train/test dataset split will also be examined through cross-validation with different numbers of folds. Finally, the best performance from the combination of the model and word embedding approach will be recommended for use. The cross-validated classification accuracy of the model by K-Folds will be used to determine the model that performs the best.
