@@ -28,4 +28,6 @@ Examining the distribution of tweets by language, the following plot is produced
 <img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/tweets_distribution_language.png" width="800">
 <p></p>
 The top five languages of tweets were English, Spanish, Portuguese, French, and Japanese.
+<p></p>
+These tweets were then filtered where only tweets in English were kept, and duplicated tweets were excluded. This resulted in 12,467 tweets to work with for the rest of the project.
 
