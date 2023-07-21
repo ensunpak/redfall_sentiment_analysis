@@ -30,4 +30,30 @@ Examining the distribution of tweets by language, the following plot is produced
 The top five languages of tweets were English, Spanish, Portuguese, French, and Japanese.
 <p></p>
 These tweets were then filtered where only tweets in English were kept, and duplicated tweets were excluded. This resulted in 12,467 tweets to work with for the rest of the project.
+<p></p>
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/en_tweet_over_time.png" width="800">
+<p></p>
+Across our time window of analysis, it is observed that the volume of tweets scraped daily is not consistent daily. This will be revisited after the sentiment labels are assigned to the tweets, where the percentage of composition of sentiment daily is examined.
+
+#### <p>Tweet pre-processing</p>
+The tweets were subjected to text pre-processing techniques: word tokenization, removal of emoticons, URI links, the hashtag symbol (#), numbers, carriage return, Twitter handles (@user), punctuations, and words with less than a length of two. These were further processed to lower the case of each word, perform word lemmatization, and final removal of product and entity nouns. The NLTK Python package was used to perform the tweet tokenization and word lemmatization.
+
+#### <p>Sentiment labelling</p>
+The **[TextBlob](https://textblob.readthedocs.io/en/dev/)** Python package was used to evaluate and return a polarity score for each tweet. A polarity score ranges between [-1, 1], where a score towards -1 suggests strong negative sentiment, and conversely, a score towards 1 suggests strong positive sentiment. A score close to 0 suggests neutral sentiment.
+
+After the sentiment labels are applied to the tweets, a distribution plot was produced to review the results of the labeling.
+<p></p>
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/tweet_polarity_histogram.png" width=550>
+<p></p>
+It is observed that a large majority of the tweets were classified as neutral, and the negative (< 0) and positive (> 0) labels were assigned equally.
+<p></p>
+<p></p>
+Next, a discrete sentiment label was applied based on the polarity of each tweet. A sentiment label of 1 denotes positive sentiment, 0 denotes neutral sentiment and -1 denotes negative sentiment. A composition of sentiments as even as possible was desired, and this was achieved by assigning the following cut-off on the polarity score.<p></p>
+
+| Polarity score cutoff | Sentiment |
+| --------------------- | --------- |
+| Polarity > 0.09       | Positive  |
+| 0 <= Polarity <= 0.09 | Neutral   |
+| Polarity < 0          | Negative  |
+
 
