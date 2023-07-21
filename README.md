@@ -56,4 +56,8 @@ Next, a discrete sentiment label was applied based on the polarity of each tweet
 | 0 <= Polarity <= 0.09 | Neutral   |
 | Polarity < 0          | Negative  |
 
+<img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/pie_chart_sentiment_dist.png" width=350>
 
+The pie chart (taboo visualization type) shows the distribution of the discrete sentiment labels of the tweets after applying the polarity score cutoffs according to the table above.
+
+The ten most used words in tweets that are both positive and negative can be seen in the plot produced below. The count was transformed with natural log to make the points easier to read. Interestingly, most of the top words are found in positive tweets.
