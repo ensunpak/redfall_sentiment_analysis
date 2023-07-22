@@ -18,6 +18,9 @@ _Data files_<br>
 * redfall_tweets_search.pkl - Raw Redfall tweets with search string "redfall"
 * tweets_english.pkl - All raw Redfall tweets (English language only)
 
+![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ## 1. Background
 Redfall is a video game developed by Arkane Studios and was expected to be an A-list video game. However, the game was plagued by negative events throughout its development cycle such as high staff turnover and acquisition of the game studio by Microsoft. When the game was released, many features of the game were not delivered and it was full of bugs as well, thus attracting negative feedback from the gaming community. Based on gaming news articles written about Redfall, most of the sentiment is negative toward this game. This project examines whether the negative sentiment about the game is true by analyzing tweets about Redfall from Twitter.
 
