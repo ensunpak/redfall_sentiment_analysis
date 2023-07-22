@@ -5,7 +5,7 @@ The tweets used in this project were scraped and classified with a sentiment (po
 To classify new tweets, a select number of classification algorithms were developed to classify them with a sentiment, and results were cross-validated with K-Folds to determine the best model for use in this project.
 ___
 ![Redfall banner](/img/redfall_banner.png)
-<p align="center", font size=8>Screengrab from Arkane Studios.</p>
+<div align="center">Screengrab from Arkane Studios.</div>
 
 ### Background
 Redfall is a video game developed by Arkane Studios and was expected to be an A-list video game. However, the game was plagued by negative events throughout its development cycle such as high staff turnover and acquisition of the game studio by Microsoft. When the game was released, many features of the game were not delivered and it was full of bugs as well, thus attracting negative feedback from the gaming community. Based on gaming news articles written about Redfall, most of the sentiment is negative toward this game. This project examines whether the negative sentiment about the game is true by analyzing tweets about Redfall from Twitter.
@@ -39,7 +39,7 @@ Across our time window of analysis, it is observed that the volume of tweets scr
 #### Tweet pre-processing
 The tweets were subjected to text pre-processing techniques: word tokenization, removal of emoticons, URI links, the hashtag symbol (#), numbers, carriage return, Twitter handles (@user), punctuations, and words with less than a length of two. These were further processed to lower the case of each word, perform word lemmatization, and final removal of product and entity nouns. The NLTK Python package was used to perform the tweet tokenization and word lemmatization.
 
-#### Sentiment labelling
+#### Sentiment labeling
 The **[TextBlob](https://textblob.readthedocs.io/en/dev/)** Python package was used to evaluate and return a polarity score for each tweet. A polarity score ranges between [-1, 1], where a score towards -1 suggests strong negative sentiment, and conversely, a score towards 1 suggests strong positive sentiment. A score close to 0 suggests neutral sentiment.
 
 After the sentiment labels are applied to the tweets, a distribution plot was produced to review the results of the labeling.
@@ -64,7 +64,7 @@ The ten most used words in tweets that are both positive and negative can be see
 
 <img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/top_10_occuring_words.png" width=450>
 
-The trend of the relative composition of the daily tweets was examined. This would be an appropriate approach to determine the sentiment trend of the tweets over the observation window, given that the daily samples size of tweets is not consistent.
+The trend of the relative composition of the daily tweets was examined. This would be an appropriate approach to determine the sentiment trend of the tweets over the observation window, given that the daily sample size of tweets is not consistent.
 
 <img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/sentiment_dist_ts.png" width=900>
 
@@ -76,7 +76,7 @@ It is quite hard to tell the direction of the sentiments around the launch date.
 
 <img src="https://github.com/ensunpak/redfall_sentiment_analysis/blob/main/img/sentiment_breakdown_trendline.png" width=960>
 
-Now it can be seen clearly that the negative sentiment decreased towards the release date but increased again after. This confirms our expectation of the public sentiment of the game after its launch, however it is interesting to note that negative sentiment actually decreased closer to when the game was about to be released.
+Now it can be seen clearly that the negative sentiment decreased towards the release date but increased again after. This confirms our expectation of the public sentiment of the game after its launch, however, it is interesting to note that negative sentiment actually decreased closer to when the game was about to be released.
 
 ### Clustering Model Experiment
 
